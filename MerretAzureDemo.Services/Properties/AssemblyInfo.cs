@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MerretAzureDemo.Pub")]
+[assembly: AssemblyTitle("MerretAzureDemo.Services")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Harvey Nichols")]
-[assembly: AssemblyProduct("MerretAzureDemo.Pub")]
+[assembly: AssemblyProduct("MerretAzureDemo.Services")]
 [assembly: AssemblyCopyright("Copyright © Harvey Nichols 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("41fe9809-6899-44b9-901e-6cd0755f58d6")]
+[assembly: Guid("941e8a69-594e-45b7-8fdb-1640b19ec141")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,4 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config")]

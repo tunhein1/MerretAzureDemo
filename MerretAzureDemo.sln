@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerretAzureDemo.Sub", "Merr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerretAzureDemo.MerretDataAccess", "MerretAzureDemo.MerretDataAccess\MerretAzureDemo.MerretDataAccess.csproj", "{B9127620-C594-4CBF-85BF-BE0482DBFA52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerretAzureDemo.Services", "MerretAzureDemo.Services\MerretAzureDemo.Services.csproj", "{941E8A69-594E-45B7-8FDB-1640B19EC141}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B9127620-C594-4CBF-85BF-BE0482DBFA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9127620-C594-4CBF-85BF-BE0482DBFA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9127620-C594-4CBF-85BF-BE0482DBFA52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{941E8A69-594E-45B7-8FDB-1640B19EC141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{941E8A69-594E-45B7-8FDB-1640B19EC141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{941E8A69-594E-45B7-8FDB-1640B19EC141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{941E8A69-594E-45B7-8FDB-1640B19EC141}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

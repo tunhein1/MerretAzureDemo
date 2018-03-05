@@ -5,18 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using MerretAzureDemo.MerretDataAccess.Models;
 using System.Data;
+using log4net;
+using MerretAzureDemo.MerretDataAccess.Mapper;
 
 namespace MerretAzureDemo.MerretDataAccess
 {
     public class MerretRepository : IMerretRepository
     {
-        private readonly ILogger _logger;
-        private readonly IMerretMapper _merretMapper;
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public MerretRepository(ILogger logger, IMerretMapper merretMapper)
+        public MerretRepository()
         {
-            _logger = logger;
-            _merretMapper = merretMapper;
         }
 
         //Price Line File joined with Price Change Header File
@@ -30,12 +29,12 @@ namespace MerretAzureDemo.MerretDataAccess
             {
                 string sql = QueryBuilder.MerretLinePriceFileQuery(updateFrom);
                 DataTable dt = MerretDb.ExecuteQuery(nameof(PDLPRCP), sql);
-                pdlprcp = _merretMapper.PDLPRCPFromDataTable(dt);
+                pdlprcp = MerretMapper.PDLPRCPFromDataTable(dt);
             }
             catch (Exception e)
             {
                 var mde = new MerretDataException("MerretRepository::GetLinePriceFile exception", e);
-                _logger.Exception(mde);
+                log.Error(mde);
             }
 
             return pdlprcp;
@@ -52,12 +51,12 @@ namespace MerretAzureDemo.MerretDataAccess
             {
                 string sql = QueryBuilder.MerretLinePriceFileQuery(styleNumber);
                 DataTable dt = MerretDb.ExecuteQuery(nameof(PDLPRCP), sql);
-                pdlprcp = _merretMapper.PDLPRCPFromDataTable(dt);
+                pdlprcp = MerretMapper.PDLPRCPFromDataTable(dt);
             }
             catch (Exception e)
             {
                 var mde = new MerretDataException("MerretRepository::GetLinePriceFile exception", e);
-                _logger.Exception(mde);
+                log.Error(mde);
             }
 
             return pdlprcp;
@@ -73,13 +72,13 @@ namespace MerretAzureDemo.MerretDataAccess
 
                 DataTable dt = MerretDb.ExecuteQuery(nameof(PDPRODP), sql);
 
-                products = _merretMapper.PDPRODPFromDataTable(dt);
+                products = MerretMapper.PDPRODPFromDataTable(dt);
 
             }
             catch (Exception e)
             {
                 var mde = new MerretDataException("MerretRepository::GetProducts exception", e);
-                _logger.Exception(mde);
+                log.Error(mde);
             }
 
             return products;
@@ -93,7 +92,7 @@ namespace MerretAzureDemo.MerretDataAccess
 
             DataTable dt = MerretDb.ExecuteQuery(nameof(PCCIHDP), sql);
 
-            pccihdp = _merretMapper.PCCIHDPFromDataTable(dt);
+            pccihdp = MerretMapper.PCCIHDPFromDataTable(dt);
 
             return pccihdp;
         }
@@ -104,7 +103,7 @@ namespace MerretAzureDemo.MerretDataAccess
 
             DataTable dt = MerretDb.ExecuteQuery(nameof(PCCIHDP), sql);
 
-            var pccihdp = _merretMapper.PCCIHDPFromDataTable(dt);
+            var pccihdp = MerretMapper.PCCIHDPFromDataTable(dt);
 
             return pccihdp.FirstOrDefault();
         }
@@ -117,7 +116,7 @@ namespace MerretAzureDemo.MerretDataAccess
 
             DataTable dt = MerretDb.ExecuteQuery(nameof(PCCSDTP), sql);
 
-            pccsdtp = _merretMapper.PCCSDTPFromDataTable(dt);
+            pccsdtp = MerretMapper.PCCSDTPFromDataTable(dt);
 
             return pccsdtp;
         }
