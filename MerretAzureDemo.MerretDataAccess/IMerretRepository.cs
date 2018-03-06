@@ -25,5 +25,6 @@ namespace MerretAzureDemo.MerretDataAccess
         PCCIHDP GetMarkdownHeader(int priceChangeNumber);
 
         List<PCCSDTP> GetFirstMarkdownDetail(string priceChangeNumber);
+
     }
 }
