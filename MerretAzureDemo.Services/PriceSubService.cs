@@ -43,7 +43,8 @@ namespace MerretAzureDemo.Services
             // register sub message handler and recive message in a loop
             RegisterOnMessageHandlerAndReceiveMessages();
 
-            Console.ReadKey();
+            //Console.ReadKey();
+            while (true) { };
 
             await subscriptionClient.CloseAsync();
 
@@ -93,9 +94,7 @@ namespace MerretAzureDemo.Services
             {
                 string fileName = $"C:\\temp\\price_{DateTime.Now.ToString("ddMMyyyyhh")}.csv";
 
-                //if(!File.Exists(fileName))
-                //{
-                using (var sw = new StreamWriter(fileName))
+                using (var sw = new StreamWriter(fileName, File.Exists(fileName)))
                 {
                     var writer = new CsvHelper.CsvWriter(sw, _csvConfig);
                     var result = JsonConvert.DeserializeObject<PDLPRCP>(Encoding.UTF8.GetString(message.Body));
@@ -107,11 +106,38 @@ namespace MerretAzureDemo.Services
                     writer.WriteField(result.BaseCcyOriginalRet);
                     writer.NextRecord();
                 }
-                //}
-                // else
-                //{
 
-                // }
+                //if (!File.Exists(fileName))
+                //{
+                //    using (var sw = new StreamWriter(fileName))
+                //    {
+                //        var writer = new CsvHelper.CsvWriter(sw, _csvConfig);
+                //        var result = JsonConvert.DeserializeObject<PDLPRCP>(Encoding.UTF8.GetString(message.Body));
+                //        writer.WriteField(result.StyleNumber);
+                //        writer.WriteField(result.ColourCode);
+                //        writer.WriteField(result.SizeCode);
+                //        writer.WriteField(result.CountryCode);
+                //        writer.WriteField(result.BaseCcyCurrentRet);
+                //        writer.WriteField(result.BaseCcyOriginalRet);
+                //        writer.NextRecord();
+                //    }
+                //}
+                //else
+                //{
+                //    using (var sw = new StreamWriter(fileName,true))
+                //    {
+                //        var writer = new CsvHelper.CsvWriter(sw, _csvConfig);
+                //        writer.NextRecord();
+                //        var result = JsonConvert.DeserializeObject<PDLPRCP>(Encoding.UTF8.GetString(message.Body));
+                //        writer.WriteField(result.StyleNumber);
+                //        writer.WriteField(result.ColourCode);
+                //        writer.WriteField(result.SizeCode);
+                //        writer.WriteField(result.CountryCode);
+                //        writer.WriteField(result.BaseCcyCurrentRet);
+                //        writer.WriteField(result.BaseCcyOriginalRet);
+                //        writer.NextRecord();
+                //    }
+                //}
 
 
                 return true;
