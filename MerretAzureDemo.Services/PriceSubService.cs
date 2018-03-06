@@ -105,8 +105,7 @@ namespace MerretAzureDemo.Services
                     writer.WriteField(result.CountryCode);
                     writer.WriteField(result.BaseCcyCurrentRet);
                     writer.WriteField(result.BaseCcyOriginalRet);
-                    
-
+                    writer.NextRecord();
                 }
                 //}
                 // else
